@@ -1,0 +1,48 @@
+cflags = -I. -Wall -Wextra
+#CC     = clang++ -std=c++11
+CC     = g++ -std=c++11
+
+AREA51  = /home/courses/cop3330p/LIB/area51
+
+all:         clients benchmarks
+clients:     fstack.x
+benchmarks:  fstack_char_i.x fstack_ID_i.x fstack_int_i.x fstack_Product_i.x fstack_String_i.x
+
+# build executables
+
+fstack.x: fstack.o
+        $(CC) -o fstack.x fstack.o
+
+constTest.x: constTest.o
+        $(CC) -o constTest.x constTest.o
+
+# build object code files
+
+
+
+fstack.o: tstack.h  fstack.cpp
+        $(CC) $(cflags) -c fstack.cpp
+
+constTest.o: tstack.h constTest.cpp
+        $(CC) $(cflags) -c constTest.cpp
+# build benchmarks
+
+fstack_char_i.x: /home/courses/cop3330p/LIB/area51/fstack_char_i.x
+        cp  /home/courses/cop3330p/LIB/area51/fstack_char_i.x .
+        chmod 700 fstack_char_i.x
+
+fstack_ID_i.x: /home/courses/cop3330p/LIB/area51/fstack_ID_i.x
+        cp /home/courses/cop3330p/LIB/area51/fstack_ID_i.x .
+        chmod 700 fstack_ID_i.x
+
+fstack_int_i.x: /home/courses/cop3330p/LIB/area51/fstack_int_i.x
+        cp /home/courses/cop3330p/LIB/area51/fstack_int_i.x .
+        chmod 700 fstack_int_i.x
+
+fstack_Product_i.x: /home/courses/cop3330p/LIB/area51/fstack_Product_i.x
+        cp /home/courses/cop3330p/LIB/area51/fstack_Product_i.x .
+        chmod 700 fstack_Product_i.x
+
+fstack_String_i.x: /home/courses/cop3330p/LIB/area51/fstack_String_i.x
+        cp /home/courses/cop3330p/LIB/area51/fstack_String_i.x .
+        chmod 700 fstack_String_i.x
